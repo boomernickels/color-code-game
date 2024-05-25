@@ -1,8 +1,9 @@
 import { colorIdToColor } from "./Utils";
 
-function Marker({ colorId }) {
+function Marker({ small, colorId }) {
+    let markerIndicator = "Marker" + (small ? "-small" : "")
     return (
-        <div className={colorIdToColor(colorId) + "-marker Marker"} />
+        <div className={colorIdToColor(colorId) + "-marker " + markerIndicator} />
     );
 }
 

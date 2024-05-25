@@ -1,7 +1,6 @@
 import { useState } from "react";
-import CodeAnswer from "./CodeAnswer";
 import Button from "react-bootstrap/Button";
-import GuessPanel from "./GuessPanel";
+import CodePanel from "./CodePanel";
 
 function ColorCodeGame() {
     const [answer, setAnswer] = useState(() => initAnswer());
@@ -30,11 +29,10 @@ function ColorCodeGame() {
     }
 
     return (
-        <>
-            <CodeAnswer answer={showAnswer ? answer : maskedAnswer} />
-            <GuessPanel />
+        <div className="Game">
+            <CodePanel values={showAnswer ? answer : maskedAnswer} />
             <Button onClick={toggleShowAnswer}>{(showAnswer ? "Hide" : "Show") + " Answer"}</Button>
-        </>
+        </div>
     );
 }
 

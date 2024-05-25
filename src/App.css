@@ -28,9 +28,24 @@
   color: #61dafb;
 }
 
+.card.Code-panel {
+  background-color: tan;
+}
+
+.Game {
+  background-color: oldlace;
+}
+
 .Marker {
-  height: 30px;
-  width: 30px;
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.Marker-small {
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
   display: inline-block;
 }
