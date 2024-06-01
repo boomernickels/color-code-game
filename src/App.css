@@ -55,6 +55,13 @@
   display: inline-block;
 }
 
+.Guess-button {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 .Unknown-marker {
   background-color: gray;
 }

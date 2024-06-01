@@ -1,14 +1,17 @@
 import { useState } from "react";
+import { getRandomColorId } from "./Utils";
+import Guesser from "./Guesser";
 import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
-import Stack from "react-bootstrap/Stack"
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Stack from "react-bootstrap/Stack";
 import CodePanel from "./CodePanel";
 
 function ColorCodeGame() {
     const [answer, setAnswer] = useState(() => initAnswer());
     const [showAnswer, setShowAnswer] = useState(false);
+    const [guesses, setGuesses] = useState([]);
     const maskedAnswer = [0, 0, 0, 0];
 
     function initAnswer() {
@@ -20,16 +23,19 @@ function ColorCodeGame() {
         ];
     }
 
+    function newGame() {
+        setShowAnswer(false);
+        setAnswer(initAnswer());
+        setGuesses([]);
+    }
+
     function toggleShowAnswer() {
         setShowAnswer(!showAnswer);
     }
 
-    function getRandomColorId() {
-        let val = Math.floor(Math.random() * 10);
-        while (val > 5) {
-            val = Math.floor(Math.random() * 10);
-        }
-        return val + 1;
+    function submitGuess(guess) {
+        guesses.push(guess);
+        setGuesses([...guesses]);
     }
 
     return (
@@ -38,16 +44,31 @@ function ColorCodeGame() {
                 <Row>
                     <Col>&nbsp;</Col>
                     <Col xs={3}>
-                        <Button variant="link" onClick={toggleShowAnswer}>{(showAnswer ? "Turn off" : "Turn on") + " Test Mode"}</Button>
+                        <Stack>
+                            <Button variant="link" onClick={newGame}>New Game</Button>
+                            <Button variant="link" onClick={toggleShowAnswer}>{(showAnswer ? "Turn off" : "Turn on") + " Test Mode"}</Button>
+                        </Stack>
                     </Col>
                 </Row>
             </Container>
             <Stack>
-                <CodePanel hideEval values={showAnswer ? answer : maskedAnswer} />
-                <hr></hr>
-                <CodePanel values={maskedAnswer} />
+                <Stack direction="horizontal">
+                    <CodePanel holdsAnswer values={showAnswer ? answer : maskedAnswer} />
+                    <div className="ms-auto">
+                        <Stack>
+                            <Button variant="link" onClick={newGame}>New Game</Button>
+                            <Button variant="link" onClick={toggleShowAnswer}>{(showAnswer ? "Turn off" : "Turn on") + " Test Mode"}</Button>
+                        </Stack>
+                    </div>
+                </Stack>
+                <hr />
+                {guesses.map((guess) => (
+                    <CodePanel values={guess} />
+                ))}
+                <hr />
+                <Guesser onSubmit={submitGuess} />
             </Stack>
-        </div>
+        </div >
     );
 }
 

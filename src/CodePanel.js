@@ -1,8 +1,12 @@
 import { Card, Container, Row, Col, Stack } from "react-bootstrap";
 import Marker from "./Marker"
 
-function CodePanel({ values, hideEval }) {
-    let evalPanel = hideEval ? (
+function CodePanel({ values, hideEval, holdsAnswer }) {
+    let evalPanel = holdsAnswer ? (
+        <Card bdy style={{ width: '15rem' }} className="Game border-0">
+            &nbsp;
+        </Card>
+    ) : hideEval ? (
         <Card body style={{ width: '4rem' }} className="Game border-0">
             &nbsp;
         </Card>

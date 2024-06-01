@@ -28,3 +28,11 @@ export function colorIdToColor(id) {
     }
     return color;
 }
+
+export function getRandomColorId() {
+    let val = Math.floor(Math.random() * 10);
+    while (val > 5) {
+        val = Math.floor(Math.random() * 10);
+    }
+    return val + 1;
+}

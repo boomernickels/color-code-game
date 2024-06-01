@@ -1,7 +1,8 @@
 import { colorIdToColor } from "./Utils";
 
 function Marker({ small, colorId }) {
-    let markerIndicator = "Marker" + (small ? "-small" : "")
+    let markerSize = small ? "-small" : ""
+    let markerIndicator = "Marker" + markerSize
     return (
         <div className={colorIdToColor(colorId) + "-marker " + markerIndicator} />
     );
