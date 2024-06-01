@@ -14,7 +14,8 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+  background-color: midnightblue;
   min-height: 10vh;
   display: flex;
   flex-direction: column;
@@ -29,11 +30,15 @@
 }
 
 .card.Code-panel {
-  background-color: tan;
+  background-color: cornflowerblue;
+}
+
+.card.Game {
+  background-color: deepskyblue;
 }
 
 .Game {
-  background-color: oldlace;
+  background-color: deepskyblue;
 }
 
 .Marker {
