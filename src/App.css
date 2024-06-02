@@ -33,6 +33,10 @@
   background-color: cornflowerblue;
 }
 
+.card.Code-panel-win {
+  background-color: gold;
+}
+
 .card.Game {
   background-color: deepskyblue;
 }

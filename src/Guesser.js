@@ -21,6 +21,25 @@ function Guesser({ onSubmit }) {
         setGuess4(0);
     }
 
+    function guessColor(index, colorId) {
+        let updater;
+        switch (index) {
+            case 1:
+                updater = setGuess1;
+                break;
+            case 2:
+                updater = setGuess2;
+                break;
+            case 3:
+                updater = setGuess3;
+                break;
+            case 4:
+                updater = setGuess4;
+                break;
+        }
+        updater(colorId);
+    }
+
     return (
         <>
             <CodePanel hideEval values={[guess1, guess2, guess3, guess4]} />
@@ -36,36 +55,36 @@ function Guesser({ onSubmit }) {
                             <p>Make a guess</p>
                             <Stack direction="horizontal" gap={4}>
                                 <Stack gap={1}>
-                                    <button className="Guess-button Red-marker" onClick={() => setGuess1(1)} />
-                                    <button className="Guess-button Blue-marker" onClick={() => setGuess1(2)} />
-                                    <button className="Guess-button Yellow-marker" onClick={() => setGuess1(3)} />
-                                    <button className="Guess-button Green-marker" onClick={() => setGuess1(4)} />
-                                    <button className="Guess-button White-marker" onClick={() => setGuess1(5)} />
-                                    <button className="Guess-button Black-marker" onClick={() => setGuess1(6)} />
+                                    <button className="Guess-button Red-marker" onClick={() => guessColor(1, 1)} />
+                                    <button className="Guess-button Blue-marker" onClick={() => guessColor(1, 2)} />
+                                    <button className="Guess-button Yellow-marker" onClick={() => guessColor(1, 3)} />
+                                    <button className="Guess-button Green-marker" onClick={() => guessColor(1, 4)} />
+                                    <button className="Guess-button White-marker" onClick={() => guessColor(1, 5)} />
+                                    <button className="Guess-button Black-marker" onClick={() => guessColor(1, 6)} />
                                 </Stack>
                                 <Stack gap={1}>
-                                    <button className="Guess-button Red-marker" onClick={() => setGuess2(1)} />
-                                    <button className="Guess-button Blue-marker" onClick={() => setGuess2(2)} />
-                                    <button className="Guess-button Yellow-marker" onClick={() => setGuess2(3)} />
-                                    <button className="Guess-button Green-marker" onClick={() => setGuess2(4)} />
-                                    <button className="Guess-button White-marker" onClick={() => setGuess2(5)} />
-                                    <button className="Guess-button Black-marker" onClick={() => setGuess2(6)} />
+                                    <button className="Guess-button Red-marker" onClick={() => guessColor(2, 1)} />
+                                    <button className="Guess-button Blue-marker" onClick={() => guessColor(2, 2)} />
+                                    <button className="Guess-button Yellow-marker" onClick={() => guessColor(2, 3)} />
+                                    <button className="Guess-button Green-marker" onClick={() => guessColor(2, 4)} />
+                                    <button className="Guess-button White-marker" onClick={() => guessColor(2, 5)} />
+                                    <button className="Guess-button Black-marker" onClick={() => guessColor(2, 6)} />
                                 </Stack>
                                 <Stack gap={1}>
-                                    <button className="Guess-button Red-marker" onClick={() => setGuess3(1)} />
-                                    <button className="Guess-button Blue-marker" onClick={() => setGuess3(2)} />
-                                    <button className="Guess-button Yellow-marker" onClick={() => setGuess3(3)} />
-                                    <button className="Guess-button Green-marker" onClick={() => setGuess3(4)} />
-                                    <button className="Guess-button White-marker" onClick={() => setGuess3(5)} />
-                                    <button className="Guess-button Black-marker" onClick={() => setGuess3(6)} />
+                                    <button className="Guess-button Red-marker" onClick={() => guessColor(3, 1)} />
+                                    <button className="Guess-button Blue-marker" onClick={() => guessColor(3, 2)} />
+                                    <button className="Guess-button Yellow-marker" onClick={() => guessColor(3, 3)} />
+                                    <button className="Guess-button Green-marker" onClick={() => guessColor(3, 4)} />
+                                    <button className="Guess-button White-marker" onClick={() => guessColor(3, 5)} />
+                                    <button className="Guess-button Black-marker" onClick={() => guessColor(3, 6)} />
                                 </Stack>
                                 <Stack gap={1}>
-                                    <button className="Guess-button Red-marker" onClick={() => setGuess4(1)} />
-                                    <button className="Guess-button Blue-marker" onClick={() => setGuess4(2)} />
-                                    <button className="Guess-button Yellow-marker" onClick={() => setGuess4(3)} />
-                                    <button className="Guess-button Green-marker" onClick={() => setGuess4(4)} />
-                                    <button className="Guess-button White-marker" onClick={() => setGuess4(5)} />
-                                    <button className="Guess-button Black-marker" onClick={() => setGuess4(6)} />
+                                    <button className="Guess-button Red-marker" onClick={() => guessColor(4, 1)} />
+                                    <button className="Guess-button Blue-marker" onClick={() => guessColor(4, 2)} />
+                                    <button className="Guess-button Yellow-marker" onClick={() => guessColor(4, 3)} />
+                                    <button className="Guess-button Green-marker" onClick={() => guessColor(4, 4)} />
+                                    <button className="Guess-button White-marker" onClick={() => guessColor(4, 5)} />
+                                    <button className="Guess-button Black-marker" onClick={() => guessColor(4, 6)} />
                                 </Stack>
                             </Stack>
                             <Button className="mt-3" onClick={submit}>Submit</Button>
