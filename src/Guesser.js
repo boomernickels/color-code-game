@@ -21,6 +21,10 @@ function Guesser({ onSubmit }) {
         setGuess4(0);
     }
 
+    function submitDisabled() {
+        return guess1 === 0 || guess2 === 0 || guess3 === 0 || guess4 === 0;
+    }
+
     function guessColor(index, colorId) {
         let updater;
         switch (index) {
@@ -41,17 +45,12 @@ function Guesser({ onSubmit }) {
     }
 
     return (
-        <>
+        <Stack>
             <CodePanel hideEval values={[guess1, guess2, guess3, guess4]} />
             <Container>
                 <Row className="justify-content-sm-center">
                     <Col xs="auto">
-                        <Card body style={{ width: '4rem' }} className="Game border-0">
-                            &nbsp;
-                        </Card>
-                    </Col>
-                    <Col xs="auto">
-                        <Card body className="Code-panel mt-1 mb-1">
+                        <Card body className="Code-panel mt-1 mb-4">
                             <p>Make a guess</p>
                             <Stack direction="horizontal" gap={4}>
                                 <Stack gap={1}>
@@ -87,12 +86,12 @@ function Guesser({ onSubmit }) {
                                     <button className="Guess-button Black-marker" onClick={() => guessColor(4, 6)} />
                                 </Stack>
                             </Stack>
-                            <Button className="mt-3" onClick={submit}>Submit</Button>
+                            <Button className="mt-3" onClick={submit} disabled={submitDisabled()}>Submit</Button>
                         </Card>
                     </Col>
                 </Row>
             </Container>
-        </>
+        </Stack>
     );
 }
 

@@ -83,11 +83,14 @@ function App() {
                 <Stack>
                     <CodePanel hideEval values={showAnswer ? answer : maskedAnswer} />
                     <hr />
-                    <Guesser onSubmit={submitGuess} />
-                    <hr />
-                    {guesses.data.map((guess) => (
-                        <CodePanel values={guess.guess} score={guess.score} />
-                    ))}
+                    <Stack direction="horizontal" className="col-xs-5 mx-auto">
+                        <Guesser onSubmit={submitGuess} />
+                        <Stack>
+                            {guesses.data.map((guess) => (
+                                <CodePanel values={guess.guess} score={guess.score} showVerticleBar={true} />
+                            ))}
+                        </Stack>
+                    </Stack>
                 </Stack>
             </div >
             <p>
